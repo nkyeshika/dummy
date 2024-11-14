@@ -1,0 +1,26 @@
+import React, { useState } from 'react';
+const Lab= () => {
+    const [select, setSelect] = useState('');
+    const options = [
+        { value: '', label: 'Select an option' },
+        { value: 'React', label: 'React' },
+        { value: 'Java', label: 'Java' },
+        {value:'Python',label:'Python'}
+    ];
+    const handleChange = (event) => {
+        setSelect(event.target.value);
+    };
+    return (
+        <div> <center>
+            <select value={select} onChange={handleChange}>
+                {options.map(option => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
+            </select>
+            {select && <p>You selected: {select}</p>}
+            </center>
+        </div>
+    );};
+export default Lab;
