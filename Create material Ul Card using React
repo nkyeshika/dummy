@@ -1,0 +1,23 @@
+import * as React from 'react';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import img from './1.jpg';
+
+export default function UICard() {
+  return (
+    <center>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia component="img" sx={{ height: 300 }} image={img} title="Flower" />
+        <CardContent>
+          <Typography gutterBottom variant="h5">Manmadhan</Typography>
+          <Typography variant="body3" color="text.secondary">
+          namma dhaan aandavan vandhalum
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Share</Button>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+    </center>
+  );
+}
