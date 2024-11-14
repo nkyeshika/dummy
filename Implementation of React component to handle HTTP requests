@@ -1,0 +1,64 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+const Lab= () => {
+    const [users, setUsers] = useState([]);
+    const [userName, setUserName] = useState('');
+    const [editUserId, setEditUserId] = useState(null);
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+    const fetchUsers = () => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(res => {
+                setUsers(res.data);
+            });
+    };
+    const createUser = () => {
+        axios.post('https://jsonplaceholder.typicode.com/users', { name: userName })
+            .then(res => {
+                setUsers([...users, res.data]);
+                setUserName('');
+            });
+    };
+
+    const updateUser = () => {
+        axios.put(https://jsonplaceholder.typicode.com/users/${editUserId}, { name: userName })
+            .then(response => {
+                setUsers(users.map(user => user.id === editUserId ? response.data : user));
+                setEditUserId(null);
+                setUserName('');
+            });
+    };
+    const deleteUser = (id) => {
+        axios.delete(https://jsonplaceholder.typicode.com/users/${id})
+            .then(() => {
+                setUsers(users.filter(user => user.id !== id));});};
+    const handleEdit = (id, name) => {
+        setEditUserId(id);
+        setUserName(name);
+    };
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="User name"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)} />
+            {editUserId ? (
+                <button onClick={updateUser}>Update User</button>
+            ) : (
+                <button onClick={createUser}>Add User</button>
+            )}
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>
+                        {user.name}
+                        <button onClick={() => handleEdit(user.id, user.name)}>Edit</button>
+                        <button onClick={() => deleteUser(user.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+export default Lab
