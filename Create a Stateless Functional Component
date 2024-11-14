@@ -1,0 +1,10 @@
+import React from 'react'
+const Lab = () => {
+  return (
+    <div>
+        <h1>This is a Stateless Functional Component</h1>
+    </div>
+  )
+}
+
+export default Lab
