@@ -1,0 +1,59 @@
+Parent.js
+
+import React from 'react'
+
+import Child from '../Props/Child'
+
+const Parent = () => {
+
+    const handle=()=>{
+
+        console.log("Hello,this parent")
+
+        alert("Hello")
+
+    }
+
+    const hanleGood=()=>{
+
+        alert("Goodbye from parent")
+
+    }
+
+  return (
+
+    <div>
+
+        <h1> This is Parent </h1>
+
+        <button onClick={handle}>Click</button>
+
+        <Child greet={hanleGood}></Child>
+
+    </div>
+
+  )
+
+}
+
+export default Parent
+
+Child.js
+
+import React from 'react'
+
+const Child = () => {
+
+  return (
+
+    <>
+
+<h1>Today have a good day</h1>
+
+    </>
+
+  )
+
+}
+
+export default Child
