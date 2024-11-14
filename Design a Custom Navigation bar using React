@@ -1,0 +1,68 @@
+import React from 'react';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+
+const Nav = () => {
+  return (
+    <>
+      <AppBar
+        position="static"
+        sx={{
+          color: 'white',
+          background: 'linear-gradient(to left, yellow, green)',
+          boxShadow: 3,
+        }}
+      >
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            MyApp
+          </Typography>
+          <Button
+            sx={{
+              color: 'black',
+              textTransform: 'none',
+              fontSize: '16px',
+              mx: 1,
+            }}
+          >
+            Home
+          </Button>
+
+          <Button
+            sx={{
+              color: 'black',
+              textTransform: 'none',
+              fontSize: '16px',
+              mx: 1,
+            }}
+          >
+            About
+          </Button>
+
+          <Button
+            sx={{
+              color: 'black',
+              textTransform: 'none',
+              fontSize: '16px',
+              mx: 1,
+            }}
+          >
+            Services
+          </Button>
+
+          <Button
+            sx={{
+              color: 'black',
+              textTransform: 'none',
+              fontSize: '16px',
+              mx: 1,
+            }}
+          >
+            Contact
+          </Button>
+
+        </Toolbar>
+      </AppBar>
+    </>
+  );
+};
+export default Nav;
